@@ -39,9 +39,9 @@ $(HTSLIBDIR)/config.status:
 
 $(PROJECT_OBJS): $(PROJECT_HEADERS)
 
-HTSLIB_LIBS = -lz -lm -lbz2 -llzma -lcurl -lpthread -lcrypto -ldeflate
+HTSLIB_LIBS = -lz -lm -lbz2 -llzma -lpthread -lcrypto -ldeflate # -lcurl
 lrsim: $(PROJECT_OBJS) $(SUBMODULES) optutils/opthelper.a
-	$(CC) $(PROJECT_OBJS) -o $@  $(LDFLAGS) $(HTSLIBDIR)/libhts.a $(HTSLIB_LIBS) optutils/opthelper.a --std=c++17
+	$(CC) $(PROJECT_OBJS) -o $@ $(LDFLAGS) $(HTSLIBDIR)/libhts.a $(HTSLIB_LIBS) optutils/opthelper.a --std=c++17
 
 clean:
 	rm *.o lrsim
